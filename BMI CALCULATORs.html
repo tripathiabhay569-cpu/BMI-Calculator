@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BMI Calculator</title>
+    <style>
+      body{
+        text-align: center;
+      }
+      input{
+        border: 2px solid black;
+        width: 250px;
+        padding: 10px;
+        font-size: 30px;
+        border-radius: 10px;
+      }
+      button{
+        background-color: Red;
+        color: white;
+        padding: 10px;
+        font-size: 28px;
+        border: none;
+        border-radius: 10px;
+        margin: 10px;
+      }
+      p{
+        color: Green;
+        font-size: 25px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>BMI Calculator</h1>
+      <input id="weight" placeholder="Weight in kg" type="number">
+      <input id="height" placeholder="height in m" type="number"><br>
+      <button id="btn">Calculate</button>
+      <p id="display"></p>
+    </div>
+    <script>
+      let w = document.getElementById("weight")
+      let h = document.getElementById("height")
+      let b = document.getElementById("btn")
+      let dis = document.getElementById("display")
+      b.addEventListener("click",function(){
+        w = parseFloat(w.value)
+        h = parseFloat(h.value)
+        let r = w/(h*h)
+        if(r < 18.5){
+          alert("Underweight")
+        }else if(r >= 18.5 && r <= 24.9){
+          alert("Normal Weight")
+        }else if(r >= 25 && r <= 29.9){
+          alert("Over Weight")
+        }else{
+          alert("Obese")
+        }
+        dis.textContent = `Weight is ${w}, height is ${h}m, BMI is ${r.toFixed(2)}`
+      })
+    </script>
+  </body>
+</html>
